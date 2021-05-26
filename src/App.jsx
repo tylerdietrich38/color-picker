@@ -7,10 +7,17 @@ export class App extends Component {
     lightness: 0,
 
     handleButtonClick = async () => {
-      const Hue = Math.floor(Math.random() * (359 - 1) + 1);
-      const Saturation = Math.floor(Math.random() * (100 - 1) + 1);
-      const Lightness = Math.floor(Math.random() * (100 - 1) + 1);
+      const newHue = Math.floor(Math.random() * (359 - 1) + 1);
+      const newSaturation = Math.floor(Math.random() * (100 - 1) + 1);
+      const newLightness = Math.floor(Math.random() * (100 - 1) + 1);
+
+      const newColors = {
+        hue: newHue,
+        saturation: newSaturation,
+        brightness: newLightness,
+      }
     }
+    this.setState(newColors)
   }
 
   render() {
