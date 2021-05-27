@@ -5,19 +5,13 @@ export class App extends Component {
     hue: 0,
     saturation: 0,
     lightness: 0,
-
-    handleButtonClick = async () => {
-      const newHue = Math.floor(Math.random() * (359 - 1) + 1);
-      const newSaturation = Math.floor(Math.random() * (100 - 1) + 1);
-      const newLightness = Math.floor(Math.random() * (100 - 1) + 1);
-
-      const newColors = {
-        hue: newHue,
-        saturation: newSaturation,
-        brightness: newLightness,
-      }
-    }
-    this.setState(newColors)
+  }
+  handleButtonClick = () => {
+    this.setState({
+      hue: Math.floor(Math.random() * (359 - 1) + 1),
+      saturation: Math.floor(Math.random() * (100 - 1) + 1),
+      lightness: Math.floor(Math.random() * (100 - 1) + 1),
+    })
   }
 
   render() {
@@ -52,12 +46,8 @@ export class App extends Component {
           value={this.state.lightness}
           onChange={event => this.setState({ lightness: event.target.value })}
         />
-        <button>
-          Randomize!
-        </button>
+        <button onClick={this.handleButtonClick}> Randomize! </button>
       </>
     )
   }
 }
-
-export default App
